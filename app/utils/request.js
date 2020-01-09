@@ -2,7 +2,7 @@ import axios from 'axios';
 import store from '../configureStore';
 import { makeCall, makeCallResult } from '../global/actions';
 
-const request = (opt) => {
+export const request = (opt) => {
   const config = {
     method: opt.method,
     timeout: '30000',

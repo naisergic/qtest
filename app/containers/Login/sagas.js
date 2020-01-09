@@ -11,7 +11,7 @@ import Endpoints from '../../Endpoints';
 import request from '../../utils/request';
 import { LOGIN_COOKIE_NAME } from '../../constants';
 
-function* performLogin({ email, password, keepMeSignIn }) {
+export function* performLogin({ email, password, keepMeSignIn }) {
   try {
     const {
       body: { token },
