@@ -27,7 +27,8 @@ App has 4 pages
 5. If user select the tick the keep me signed checkbox then cookie expiry date will be       set to 4 years from now otherwise cookiw will be setup for 30 minute
 6. To see the detail of user need to click on the user pic.
 7. Dashboard Page and user detail page are protected, if some anonymous user try to visit    those page directly he/she will redirected to home page
-8. For Loading a loading msg is used. 
+8. For Loading a loading msg is used.
+9. Api is returning the same data for all user
 
 For Logging in you can try the following credential
 userName - eve.holt@reqres.in
