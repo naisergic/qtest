@@ -29,7 +29,7 @@ export function* performLogin({ email, password, keepMeSignIn }) {
       if (keepMeSignIn) {
         timeToExpire = currentDate.setFullYear(currentDate.getFullYear() + 4);
       }
-      cookies.set(LOGIN_COOKIE_NAME, token, { path: '/', maxAge: timeToExpire });
+      cookies.set(LOGIN_COOKIE_NAME, token, { path: '/', maxAge: new Date(timeToExpire) });
       return yield put(loginSuccess(true));
     }
     return yield put(loginFailure(true));

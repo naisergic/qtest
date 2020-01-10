@@ -8,14 +8,22 @@ import {
 } from './constant';
 import { LOGIN_COOKIE_NAME } from '../../constants';
 
-const Header = ({ makeLogout }) => {
+const Header = ({ makeLogout, isLoggedIn, performLoginSuccess }) => {
   const cookies = new Cookies();
   const checkCookie = cookies.get(LOGIN_COOKIE_NAME);
-  let route = LOGIN_ROUTE;
-  let text = LOGIN_TEXT;
+  let route;
+  let text;
+  if (!isLoggedIn || !checkCookie) {
+    route = LOGIN_ROUTE;
+    text = LOGIN_TEXT;
+  }
+
   if (checkCookie) {
     text = LOGOUT_TEXT;
     route = LOGOUT_ROUTE;
+    if (!isLoggedIn) {
+      performLoginSuccess(true);
+    }
   }
   const handleClick = () => {
     cookies.remove(LOGIN_COOKIE_NAME);
@@ -29,5 +37,7 @@ const Header = ({ makeLogout }) => {
 };
 Header.propTypes = {
   makeLogout: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+  performLoginSuccess: PropTypes.func.isRequired,
 };
 export default Header;
