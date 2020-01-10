@@ -11,7 +11,6 @@ app.use(express.static(DIST_DIR));
 // Send index.html when the user access the web
 app.get('*', (req, res) => {
   try {
-    console.log(path.join(DIST_DIR, 'index.html'));
     res.sendFile(path.join(DIST_DIR, 'index.html'));
   } catch (e) {
     console.log('error', e);
