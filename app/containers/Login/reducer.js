@@ -17,7 +17,7 @@ const loginReducer = (
 ) => {
   switch (type) {
     case LOGIN_SUCCESS:
-      return { ...state, isLogin: true };
+      return { ...state, isLogin: true, error: false };
     case LOGIN_FAILURE:
       return { ...state, error: true, isLogin: false };
     case LOGOUT:
