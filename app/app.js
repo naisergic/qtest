@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './configureStore';
 import AppContainer from './containers/App';
-import './style.css';
 
 /* eslint-disable  react/jsx-filename-extension */
 const App = () => (

@@ -1,3 +1,6 @@
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
 html,body {
     height: 100%;
 }
@@ -27,4 +30,6 @@ table, th, td {
 a {
     text-decoration: none;
 }
+`;
 
+export default GlobalStyle;
