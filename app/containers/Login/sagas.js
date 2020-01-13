@@ -23,10 +23,10 @@ export function* performLogin({ email, password, keepMeSignIn }) {
     });
 
     if (status === 200) {
-      const currentDate = new Date();
-      let timeToExpire = 30;
+      let timeToExpire = 30 * 60000;
       const cookies = new Cookies();
       if (keepMeSignIn) {
+        const currentDate = new Date();
         timeToExpire = currentDate.setFullYear(currentDate.getFullYear() + 4);
       }
       cookies.set(LOGIN_COOKIE_NAME, token, { path: '/', maxAge: timeToExpire });
