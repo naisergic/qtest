@@ -23,7 +23,7 @@ export function* performLogin({ email, password, keepMeSignIn }) {
     });
 
     if (status === 200) {
-      let timeToExpire = 30 * 60000;
+      let timeToExpire = 30 * 60;
       const cookies = new Cookies();
       if (keepMeSignIn) {
         const currentDate = new Date();
