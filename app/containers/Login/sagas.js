@@ -24,12 +24,12 @@ export function* performLogin({ email, password, keepMeSignIn }) {
 
     if (status === 200) {
       const currentDate = new Date();
-      let timeToExpire = currentDate.setMinutes(currentDate.getMinutes() + 30);
+      let timeToExpire = 30;
       const cookies = new Cookies();
       if (keepMeSignIn) {
         timeToExpire = currentDate.setFullYear(currentDate.getFullYear() + 4);
       }
-      cookies.set(LOGIN_COOKIE_NAME, token, { path: '/', maxAge: new Date(timeToExpire) });
+      cookies.set(LOGIN_COOKIE_NAME, token, { path: '/', maxAge: timeToExpire });
       return yield put(loginSuccess(true));
     }
     return yield put(loginFailure(true));
